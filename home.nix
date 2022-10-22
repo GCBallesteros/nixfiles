@@ -17,6 +17,7 @@
     pkgs.jq
     pkgs.neovim
     pkgs.nmap
+    pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
     pkgs.ripgrep
     pkgs.rustup
