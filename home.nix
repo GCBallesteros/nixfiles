@@ -18,6 +18,7 @@
     pkgs.neovim
     pkgs.nixfmt
     pkgs.nmap
+    pkgs.nodejs
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
     pkgs.ripgrep
@@ -76,6 +77,7 @@
         [ "ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.." ];
       share = true;
     };
+
     initExtra = ''
       export PYENV_ROOT=$HOME/.pyenv
       export PATH="$HOME/.pyenv/bin:$PATH"
