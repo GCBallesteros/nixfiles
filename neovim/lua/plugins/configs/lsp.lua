@@ -10,7 +10,7 @@ for _, sign in ipairs(signs) do
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local navic_attach = function(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
