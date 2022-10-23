@@ -3,8 +3,8 @@
 {
   programs.home-manager.enable = true;
 
-  home.username = "garfield";
-  home.homeDirectory = "/Users/garfield";
+  home.username = "guillem";
+  home.homeDirectory = "/Users/guillem";
 
   home.stateVersion = "22.05";
 
@@ -48,6 +48,8 @@
     recursive = true;
   };
 
+  xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
+
   programs.fzf = {
     enable = true;
   };
@@ -71,6 +73,12 @@
       ignorePatterns = ["ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.."];
       share = true;
     };
+    initExtra = ''
+    export PYENV_ROOT=$HOME/.pyenv
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    '';
   };
 
   home.sessionVariables = {
