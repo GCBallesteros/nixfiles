@@ -16,6 +16,7 @@
     pkgs.htop
     pkgs.jq
     pkgs.neovim
+    pkgs.nixfmt
     pkgs.nmap
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
@@ -28,20 +29,14 @@
   ];
 
   programs.ssh = {
-      enable = true;
-      matchBlocks = {
-          "*.github.com" = {
-              identityFile = "~/.ssh/github.pub";
-          };
-      };
+    enable = true;
+    matchBlocks = { "*.github.com" = { identityFile = "~/.ssh/github.pub"; }; };
   };
 
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = {
-      username = {disabled = false;};
-    };
+    settings = { username = { disabled = false; }; };
   };
 
   programs.bat = {
@@ -59,9 +54,7 @@
 
   xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
 
-  programs.fzf = {
-    enable = true;
-  };
+  programs.fzf = { enable = true; };
 
   programs.zsh = {
     enable = true;
@@ -71,7 +64,7 @@
     shellAliases = {
       sl = "exa --color=auto";
       ls = "exa --color=auto";
-      ll="exa -lah";
+      ll = "exa -lah";
       la = "exa -la";
       mkdir = "mkdir -p";
       cat = "bat --style=plain";
@@ -79,18 +72,17 @@
     history = {
       size = 5000;
       save = 5000;
-      ignorePatterns = ["ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.."];
+      ignorePatterns =
+        [ "ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.." ];
       share = true;
     };
     initExtra = ''
-    export PYENV_ROOT=$HOME/.pyenv
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+      export PYENV_ROOT=$HOME/.pyenv
+      export PATH="$HOME/.pyenv/bin:$PATH"
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
     '';
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 }
