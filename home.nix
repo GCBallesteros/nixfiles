@@ -27,6 +27,15 @@
     pkgs.whois
   ];
 
+  programs.ssh = {
+      enable = true;
+      matchBlocks = {
+          "*.github.com" = {
+              identityFile = "~/.ssh/github.pub";
+          };
+      };
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
