@@ -19,6 +19,19 @@ end
 local lspconfig = require "lspconfig"
 
 -- Python
+lspconfig.ruff_lsp.setup({
+  on_attach = function(client, bufnr)
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    },
+  },
+})
+
 lspconfig.pyright.setup({
   settings = {
     python = {
@@ -57,7 +70,7 @@ lspconfig.rust_analyzer.setup({
 })
 
 -- Lua
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
   settings = {
     Lua = {
       completion = {
@@ -76,8 +89,8 @@ require("lspconfig").sumneko_lua.setup({
     },
   },
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
     require("settings/keymap").enable_lsp_keymaps()
     navic_attach(client, bufnr)
   end,

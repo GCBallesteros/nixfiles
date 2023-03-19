@@ -45,7 +45,7 @@ function M.enable_lsp_keymaps()
   keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
-  keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+  keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 -----------------
