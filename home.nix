@@ -19,6 +19,8 @@
     pkgs.nixfmt
     pkgs.nmap
     pkgs.nodejs
+    pkgs.mosh
+    pkgs.octave
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
     pkgs.ripgrep
