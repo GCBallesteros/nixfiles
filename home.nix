@@ -2,7 +2,7 @@
 
 {
   programs.home-manager.enable = true;
-
+  
   home.username = "guillem";
   home.homeDirectory = "/Users/guillem";
 
@@ -31,9 +31,25 @@
     pkgs.whois
   ];
 
+  programs.git = {
+    enable = true;
+    userName = "GCBallesteros";
+    userEmail = "dev+github@maxwellrules.com";
+    extraConfig = {
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/github.pub";
+    };
+  };
+
   programs.ssh = {
     enable = true;
-    matchBlocks = { "*.github.com" = { identityFile = "~/.ssh/github.pub"; }; };
+    matchBlocks = {
+      "github.com" = {
+        identityFile = "~/.ssh/github.pub";
+        identitiesOnly = true;
+      }; 
+    };
   };
 
   programs.starship = {
