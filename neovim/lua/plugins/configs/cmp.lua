@@ -34,16 +34,13 @@ cmp.setup({
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
+    --["<CR>"] = cmp.mapping.confirm({
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "path" },
     { name = "buffer" },
-    { name = "nvim_lsp_signature_help" },
   },
   formatting = {
     format = function(entry, vim_item)

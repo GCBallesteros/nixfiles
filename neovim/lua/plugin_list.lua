@@ -18,7 +18,7 @@ return {
     "voldikss/vim-floaterm", -- Simple floatterm
     "tpope/vim-vinegar", -- Netrw enhancements
     "mhinz/vim-startify", -- Spalsh screen
-    "ggandor/lightspeed.nvim", -- Move at the speed of light!
+    "ggandor/leap.nvim", -- Move at the speed of light!
     "scrooloose/nerdcommenter", -- Easy commenting
     "kana/vim-textobj-user", -- More text objects
     "kana/vim-textobj-line", -- al, il textobjects for lines

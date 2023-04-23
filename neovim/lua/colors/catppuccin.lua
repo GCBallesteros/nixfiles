@@ -13,11 +13,13 @@ require("catppuccin").setup({
       enabled = false,
     },
     dashboard = false,
-    lightspeed = true,
+    leap = true,
+    notify=true,
+    trouble=true,
   },
 })
 
-vim.api.nvim_command "colorscheme catppuccin"
+vim.cmd.colorscheme "catppuccin"
 
 vim.cmd [[
  highlight Cursor guifg=white guibg=black

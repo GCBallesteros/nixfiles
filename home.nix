@@ -11,6 +11,7 @@
   home.packages = [
     pkgs.curl
     pkgs.exa
+    pkgs.fd
     pkgs.gdal
     pkgs.git
     pkgs.htop
@@ -19,7 +20,6 @@
     pkgs.nixfmt
     pkgs.nmap
     pkgs.nodejs
-    pkgs.mosh
     pkgs.octave
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
@@ -46,7 +46,7 @@
     enable = true;
     matchBlocks = {
       "github.com" = {
-        identityFile = "~/.ssh/github.pub";
+        identityFile = "~/.ssh/github";
         identitiesOnly = true;
       }; 
     };
@@ -104,5 +104,8 @@
     '';
   };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    PYENV_VIRTUALENV_DISABLE_PROMPT=1;
+    EDITOR = "nvim";
+  };
 }

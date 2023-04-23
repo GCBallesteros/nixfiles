@@ -41,4 +41,4 @@ for _, file in ipairs(vim.fn.readdir(plugin_config_folder, [[v:val =~ '\.lua$']]
 end
 
 -- Wilder is configured in vimscript so it breaks the pattern
-vim.cmd "source ~/.config/nvim/lua/plugins/configs/wilder.vim"
+vim.cmd.source "~/.config/nvim/lua/plugins/configs/wilder.vim"

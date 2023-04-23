@@ -15,7 +15,7 @@ vim.g.mapleader = ","
 ---------------
 -- Telescope --
 ---------------
-keymap("n", ";", "<CMD>Telescope buffers<CR>", opts)
+keymap("n", ";", "<CMD>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>", opts)
 keymap("n", "<leader>t", "<CMD>Telescope git_files<CR>", opts)
 keymap("n", "<leader>g0", "<CMD>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<leader>g", "<CMD>Telescope live_grep<CR>", opts)
@@ -75,12 +75,16 @@ keymap("n", "<CR>", "<Plug>(LoupeClearHighlight)", { noremap = false, silent = t
 keymap("n", "]q", "<cmd>cn<CR>", opts)
 keymap("n", "[q", "<cmd>cp<CR>", opts)
 
-
 keymap("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
 keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true, noremap = true })
 keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { silent = true, noremap = true })
 keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
 keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
 keymap("n", "gr", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
+
+
+-- leap jump to line
+keymap("n", "<space>j", "<cmd>lua leap_to_line_forward()<CR>", opts)
+keymap("n", "<space>k", "<cmd>lua leap_to_line_backwards()<CR>", opts)
 
 return M

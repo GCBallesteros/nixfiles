@@ -5,4 +5,4 @@ g.neon_italic_keyword = true
 g.neon_italic_function = true
 g.neon_transparent = false
 
-vim.api.nvim_command "colorscheme neon"
+vim.cmd.colorscheme "neon"
