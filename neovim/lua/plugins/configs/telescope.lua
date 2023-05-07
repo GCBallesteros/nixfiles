@@ -1,4 +1,8 @@
-require("telescope").setup({
+local telescope = require("telescope")
+
+local project_actions = require "telescope._extensions.project.actions"
+
+telescope.setup({
   extensions = {
     fzy_native = {
       fuzzy = true,
@@ -7,16 +11,15 @@ require("telescope").setup({
     },
     project = {
       base_dirs = require("config").project_folders,
-      hidden_files = true, -- default: false
+      hidden_files = false,
       theme = "dropdown",
       order_by = "asc",
       search_by = "title",
       -- default for on_project_selected = find project files
-      --on_project_selected = function(prompt_bufnr)
-      ---- Do anything you want in here. For example:
-      --project_actions.change_working_directory(prompt_bufnr, false)
-      --require("harpoon.ui").nav_file(1)
-      --end
+      on_project_selected = function(prompt_bufnr)
+        project_actions.change_working_directory(prompt_bufnr, false)
+        require('telescope.builtin').find_files()
+      end,
     },
   },
   pickers = {
@@ -37,5 +40,5 @@ require("telescope").setup({
     },
   },
 })
-require("telescope").load_extension "fzy_native"
-require("telescope").load_extension "project"
+telescope.load_extension "fzy_native"
+telescope.load_extension "project"
