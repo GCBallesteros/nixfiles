@@ -17,10 +17,6 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local navic_attach = function(client, bufnr)
-  require("nvim-navic").attach(client, bufnr)
-end
-
 local lspconfig = require "lspconfig"
 
 -- Python
@@ -47,7 +43,6 @@ lspconfig.pyright.setup({
   },
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    require("nvim-navic").attach(client, bufnr)
     require("settings/keymap").enable_lsp_keymaps()
   end,
 })
@@ -69,7 +64,6 @@ lspconfig.rust_analyzer.setup({
   },
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    navic_attach(client, bufnr)
     require("settings/keymap").enable_lsp_keymaps()
   end,
 })
@@ -97,6 +91,5 @@ require("lspconfig").lua_ls.setup({
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
     require("settings/keymap").enable_lsp_keymaps()
-    navic_attach(client, bufnr)
   end,
 })

@@ -38,7 +38,6 @@ return {
     "tpope/vim-fugitive", -- A Git wrapper so awesome, it should be illegal
     "folke/trouble.nvim",
     -- Cosmetic UI improvements (almost no learning required)
-    "SmiteshP/nvim-navic", -- location in file using lsp
     "nvim-lualine/lualine.nvim", -- Status line
     "gelguy/wilder.nvim", -- Wild menu!
     "norcalli/nvim-colorizer.lua", -- Highlight colors

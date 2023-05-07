@@ -22,7 +22,6 @@ require("material").setup({
     -- "mini",
     -- "neogit",
     "nvim-cmp",
-    "nvim-navic",
     -- "nvim-tree",
     -- "sneak",
     "telescope",
