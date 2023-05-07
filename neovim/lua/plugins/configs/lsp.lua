@@ -10,6 +10,11 @@ for _, sign in ipairs(signs) do
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- required by ufo
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local navic_attach = function(client, bufnr)
@@ -42,7 +47,7 @@ lspconfig.pyright.setup({
   },
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    navic_attach(client, bufnr)
+    require("nvim-navic").attach(client, bufnr)
     require("settings/keymap").enable_lsp_keymaps()
   end,
 })

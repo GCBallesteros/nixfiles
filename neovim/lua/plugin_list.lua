@@ -17,8 +17,10 @@ return {
     "nvim-telescope/telescope-fzy-native.nvim",
     "voldikss/vim-floaterm", -- Simple floatterm
     "tpope/vim-vinegar", -- Netrw enhancements
-    "mhinz/vim-startify", -- Spalsh screen
+    "goolord/alpha-nvim", -- Splash Screen
+    "nvim-telescope/telescope-project.nvim",
     "ggandor/leap.nvim", -- Move at the speed of light!
+    "ggandor/flit.nvim",
     "scrooloose/nerdcommenter", -- Easy commenting
     "kana/vim-textobj-user", -- More text objects
     "kana/vim-textobj-line", -- al, il textobjects for lines
@@ -46,6 +48,8 @@ return {
     "ryanoasis/vim-devicons", -- more icons!
     "airblade/vim-gitgutter", -- show git status on gutter
     "chentoast/marks.nvim", -- show marks on gutter
+    "RRethy/vim-illuminate",
+    { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" },
     -- Colorschemes
     "rafamadriz/neon",
     "folke/tokyonight.nvim",

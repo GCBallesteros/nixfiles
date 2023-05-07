@@ -2,6 +2,9 @@ return {
   -- Colorscheme: neon / tokyonight / catppuccin / material
   colorscheme = "tokyonight",
   python3_host = "~/.pyenv/versions/neovim3/bin",
+  project_folders = {
+      "~/Documents/personal_repos"
+  },
   startify_repos = {
     {
       line = "TTTR Toolbox",

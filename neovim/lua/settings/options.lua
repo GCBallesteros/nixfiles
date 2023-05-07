@@ -32,7 +32,7 @@ opt.smartcase = true
 opt.foldlevelstart = 99
 opt.foldlevel = 99
 vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+--vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldcolumn = "1"
 opt.foldnestmax = 2
 

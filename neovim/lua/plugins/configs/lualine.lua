@@ -2,12 +2,14 @@ local navic = require "nvim-navic"
 local lualine = require "lualine"
 
 lualine.setup({
+  extensions = { "fugitive" },
   options = { theme = "auto" },
   sections = {
-    lualine_a = { "mode" },
+    lualine_a = { { "filename", path = 4 } },
     lualine_b = {
       {
         "diagnostics",
+        symbols = { error = "  ", warn = "  ", info = "  ", hint = "  " },
         sources = { "nvim_lsp" },
       },
     },
@@ -15,8 +17,8 @@ lualine.setup({
     lualine_x = { "encoding", "fileformat", "filetype" },
   },
   tabline = {
-    lualine_a = {},
-    lualine_b = { { "filename", path = 1 } },
+    lualine_a = { "mode" },
+    lualine_b = {},
     lualine_c = {
       { navic.get_location, cond = navic.is_available },
     },

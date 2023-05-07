@@ -2,6 +2,8 @@
 -- Leap.nvim --
 ---------------
 require("leap").add_default_mappings()
+vim.keymap.del({ "x", "o" }, "x")
+vim.keymap.del({ "x", "o" }, "X")
 
 local function get_line_starts(winid, dir)
   local wininfo = vim.fn.getwininfo(winid)[1]
@@ -71,3 +73,13 @@ function leap_to_line_forward()
     targets = get_line_starts(winid, "up"),
   })
 end
+
+require("flit").setup({
+  keys = { f = "f", F = "F", t = "t", T = "T" },
+  -- A string like "nv", "nvo", "o", etc.
+  labeled_modes = "v",
+  multiline = true,
+  -- Like `leap`s similar argument (call-specific overrides).
+  -- E.g.: opts = { equivalence_classes = {} }
+  opts = {},
+})
