@@ -15,10 +15,10 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "nvim-telescope/telescope.nvim", -- finder, requires fzf and ripgrep
     "nvim-telescope/telescope-fzy-native.nvim",
+    "nvim-telescope/telescope-project.nvim",
     "voldikss/vim-floaterm", -- Simple floatterm
     "tpope/vim-vinegar", -- Netrw enhancements
     "goolord/alpha-nvim", -- Splash Screen
-    "nvim-telescope/telescope-project.nvim",
     "ggandor/leap.nvim", -- Move at the speed of light!
     "ggandor/flit.nvim",
     "scrooloose/nerdcommenter", -- Easy commenting

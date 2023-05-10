@@ -29,6 +29,7 @@
     pkgs.unzip
     pkgs.wget
     pkgs.whois
+    pkgs.yarn
   ];
 
   programs.git = {

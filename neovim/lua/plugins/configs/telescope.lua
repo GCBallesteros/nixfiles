@@ -1,4 +1,4 @@
-local telescope = require("telescope")
+local telescope = require "telescope"
 
 local project_actions = require "telescope._extensions.project.actions"
 
@@ -15,10 +15,9 @@ telescope.setup({
       theme = "dropdown",
       order_by = "asc",
       search_by = "title",
-      -- default for on_project_selected = find project files
       on_project_selected = function(prompt_bufnr)
         project_actions.change_working_directory(prompt_bufnr, false)
-        require('telescope.builtin').find_files()
+        require("telescope.builtin").find_files()
       end,
     },
   },
