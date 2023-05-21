@@ -15,9 +15,13 @@ vim.g.mapleader = ","
 ---------------
 -- Telescope --
 ---------------
-keymap("n", ";", "<CMD>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>", opts)
+vim.keymap.set({ "n" }, ";", function()
+  require("telescope.builtin").buffers(require("telescope.themes").get_ivy({}))
+end, opts)
 keymap("n", "<leader>t", "<CMD>Telescope git_files<CR>", opts)
-keymap("n", "<leader>g0", "<CMD>Telescope lsp_document_symbols<CR>", opts)
+vim.keymap.set({ "n" }, "<leader>g0", function()
+  require("telescope.builtin").lsp_document_symbols({ symbol_width = 50, ignore_symbols = "variable" })
+end, opts)
 keymap("n", "<leader>g", "<CMD>Telescope live_grep<CR>", opts)
 
 --------------
@@ -81,7 +85,6 @@ keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { silent = tr
 keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
 keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
 keymap("n", "gr", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
-
 
 -- leap jump to line
 keymap("n", "<space>j", "<cmd>lua leap_to_line_forward()<CR>", opts)
