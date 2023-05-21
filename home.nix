@@ -23,6 +23,7 @@
     pkgs.octave
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
+    pkgs.postgresql_15
     pkgs.ripgrep
     pkgs.rustup
     pkgs.tmux
@@ -74,7 +75,9 @@
 
   xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
 
-  programs.fzf = { enable = true; };
+  programs.atuin = { enable = true; };
+
+  xdg.configFile."atuin/config.toml".source = ./atuin/config.toml;
 
   programs.zsh = {
     enable = true;
