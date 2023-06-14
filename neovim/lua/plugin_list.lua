@@ -14,11 +14,13 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "nvim-telescope/telescope.nvim", -- finder, requires fzf and ripgrep
+    -- TODO
     "nvim-telescope/telescope-fzy-native.nvim",
     "nvim-telescope/telescope-project.nvim",
     "voldikss/vim-floaterm", -- Simple floatterm
-    "tpope/vim-vinegar", -- Netrw enhancements
     "goolord/alpha-nvim", -- Splash Screen
+    -- TODO
+    "tpope/vim-vinegar", -- Netrw enhancements
     "ggandor/leap.nvim", -- Move at the speed of light!
     "ggandor/flit.nvim",
     "scrooloose/nerdcommenter", -- Easy commenting
@@ -29,6 +31,7 @@ return {
     "jiangmiao/auto-pairs", -- autopairs
     "qpkorr/vim-bufkill", -- for BD and BD!
     "wincent/loupe", -- saner highlighting and search
+    -- TODO
     "airblade/vim-rooter", -- Jump to root with Rooter
     "hkupty/iron.nvim", -- REPL for ipython
     "GCBallesteros/vim-textobj-hydrogen", -- Jump cells of hydrogen
@@ -47,12 +50,15 @@ return {
     "ryanoasis/vim-devicons", -- more icons!
     "airblade/vim-gitgutter", -- show git status on gutter
     "chentoast/marks.nvim", -- show marks on gutter
-    "RRethy/vim-illuminate",
-    { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" },
+    --"LeonHeidelbach/trailblazer.nvim",
     -- Colorschemes
     "rafamadriz/neon",
     "folke/tokyonight.nvim",
     { "catppuccin/nvim", as = "catppuccin" },
     "marko-cerovac/material.nvim",
+    -- UNDER<C-F2> TESTING
+    "anuvyklack/hydra.nvim",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "drybalka/tree-climber.nvim",
   },
 }

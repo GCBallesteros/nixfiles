@@ -5,6 +5,7 @@ local dashboard = require "alpha.themes.dashboard"
 dashboard.section.buttons.val = {
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("p", "  Projects", ":Telescope project<CR>"),
+  dashboard.button("f", " Find files", ":Telescope find_files<CR>"),
   dashboard.button("c", "  NVIM Config", ":e ~/Documents/personal_repos/nixfiles/neovim/init.lua<CR>"),
   dashboard.button("n", "  NIX Config", ":e ~/Documents/personal_repos/nixfiles/home.nix<CR>"),
   dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
