@@ -33,7 +33,8 @@ api.nvim_create_autocmd(
 -- We need to apply the highlight after the colorscheme has been applied
 -- because many of them have a tendency to clear custom highlights.
 local custom_highlights = api.nvim_create_augroup("custom_highlights", { clear = true })
-api.nvim_create_autocmd(
-  "ColorScheme",
-  { pattern = "*", callback = require("settings/highlights").do_custom_hi, group = custom_highlights }
-)
+api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = require("settings/highlights").do_custom_hi,
+  group = custom_highlights,
+})

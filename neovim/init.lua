@@ -3,15 +3,15 @@ local hostname = require("utils").getHostname()
 
 -- mappings from hostname -> config
 local configs = {
-    ["air"] = "air",
-    ["air.local"] = "air",
-    ["pop-os"] = "pop_os",
+  ["air"] = "air",
+  ["air.local"] = "air",
+  ["pop-os"] = "pop_os",
 }
 
 -- Read the config and if it fails go for the default
 local cfg = require("config")[configs[hostname]]
 if cfg == nil then
-    cfg = require("config")["default"]
+  cfg = require("config")["default"]
 end
 
 vim.g.mapleader = ","

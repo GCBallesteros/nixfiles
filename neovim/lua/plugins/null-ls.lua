@@ -9,7 +9,14 @@ return {
       sources = {
         nls.builtins.formatting.shfmt,
         nls.builtins.formatting.stylua.with({
-          extra_args = { "--indent-type", "Spaces", "--indent-width", "2", "--call-parentheses", "NoSingleString" },
+          extra_args = {
+            "--indent-type",
+            "Spaces",
+            "--indent-width",
+            "2",
+            "--call-parentheses",
+            "NoSingleString",
+          },
         }),
         nls.builtins.formatting.black,
         nls.builtins.formatting.isort,
