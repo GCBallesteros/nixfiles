@@ -1,19 +1,31 @@
-return {
-  -- Colorscheme: neon / tokyonight / catppuccin / material
-  colorscheme = "tokyonight",
+M = {}
+
+-- Colorscheme: neon / tokyonight / catppuccin / material
+M.air = {
+  colorscheme = "tokyonight-storm",
   python3_host = "~/.pyenv/versions/neovim3/bin",
   project_folders = {
-      "~/Documents/personal_repos"
+    "~/Documents/personal_repos",
   },
-  startify_repos = {
-    {
-      line = "TTTR Toolbox",
-      path = "~/Documents/personal_repos/tttr-toolbox/tttr-toolbox/src/main.rs",
-    },
-  },
-  startify_bookmarks = {
-    "~/Documents/personal_repos/nixfiles/neovim/init.lua",
-    "~/Documents/personal_repos/nixfiles/home.nix",
-    "~/.todo.txt"
-  },
+  dev_plugins = "~/Documents/personal_repos/",
 }
+
+M.default = {
+  colorscheme = "catppuccin",
+  python3_host = "~/.pyenv/versions/neovim3/bin",
+  project_folders = {
+    "~/Documents",
+  },
+  dev_plugins = "~/Documents/personal_repos/",
+}
+
+M.pop_os = {
+  colorscheme = "catppuccin",
+  python3_host = "~/.pyenv/versions/neovim3/bin",
+  project_folders = {
+    "~/Documents",
+  },
+  dev_plugins = "~/Documents/",
+}
+
+return M

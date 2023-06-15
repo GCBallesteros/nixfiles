@@ -23,6 +23,8 @@ vim.wo.wrap = false -- don't wrap lines
 
 opt.laststatus = 2 -- 2: the last window will always have a status line
 
+opt.jumpoptions = "stack"
+
 -- Searching
 opt.incsearch = true
 opt.ignorecase = true
@@ -32,13 +34,8 @@ opt.smartcase = true
 opt.foldlevelstart = 99
 opt.foldlevel = 99
 vim.wo.foldmethod = "expr"
---vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldcolumn = "1"
 opt.foldnestmax = 2
 
 opt.timeoutlen = 300
-
--- Completion menu
--- Disable scratpad. We just need the floating window
---opt.completeopt+=preview
-vim.o.completeopt = "menuone,noselect"

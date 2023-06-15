@@ -1,0 +1,8 @@
+--local plugin_config_folder = vim.fn.stdpath "config" .. "/lua/plugins/configs"
+--local plugin_specs = {}
+
+--for _, file in ipairs(vim.fn.readdir(plugin_config_folder, [[v:val =~ '\.lua$']])) do
+  --table.insert(plugin_specs, require("plugins/configs/" .. file:gsub("%.lua$", "")))
+--end
+
+--return plugin_specs
