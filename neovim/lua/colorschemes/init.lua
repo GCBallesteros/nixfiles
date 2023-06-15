@@ -14,10 +14,8 @@ for _, file in ipairs(vim.fn.readdir(colorscheme_folder, [[v:val =~ '\.lua$']]))
 end
 
 function M.colorscheme(theme)
-  local main_theme
-  local subtheme
-  main_theme = utils.split_string(theme, "-")[1]
-  subtheme = utils.split_string(theme, "-")[2]
+  local main_theme = utils.split_string(theme, "-")[1]
+  local subtheme = utils.split_string(theme, "-")[2]
 
   themes[main_theme](subtheme)
 end
