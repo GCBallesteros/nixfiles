@@ -5,13 +5,15 @@ return {
     vim.cmd [[
         call wilder#enable_cmdline_enter()
         set wildcharm=<c-n>
-        cmap <expr> <c-n> wilder#in_context() ? wilder#next() : "\<c-n>"
-        cmap <expr> <c-p> wilder#in_context() ? wilder#previous() : "\<c-p>"
-        cmap <expr> <C-D> wilder#can_accept_completion() ? wilder#accept_completion(0) : "\<C-D>"
-        call wilder#set_option('modes', [':'])
     ]]
-
     local wilder = require "wilder"
+
+    wilder.setup({
+      modes = { ":" },
+      next_key = "<c-n>",
+      previous_key = "<c-p>",
+      accept_key = "<c-D>",
+    })
 
     wilder.set_option("pipeline", {
       wilder.branch(
