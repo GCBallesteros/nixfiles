@@ -19,7 +19,7 @@ return {
 
       map("n", "]c", gs.next_hunk, "Next Hunk")
       map("n", "[c", gs.prev_hunk, "Prev Hunk")
-      map("n", "<leader>gd", gs.diffthis, "Diff This")
+      map("n", "<leader>gd", gs.diffthis, "Git Diff")
     end,
   },
 }

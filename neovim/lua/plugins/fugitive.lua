@@ -5,7 +5,7 @@ local M = {
   keys = {
     { "<leader>gg", "<cmd>G<cr>", desc = "Git Fugitive" },
     { "<leader>gp", "<cmd>G push<cr>", desc = "Git Push" },
-    { "<leader>gb", "<cmd>G blame<cr>", desc = "Blame" },
+    { "<leader>gb", "<cmd>G blame<cr>", desc = "Git Blame" },
   },
 }
 
