@@ -8,6 +8,7 @@ local M = {
       "black",
       "ruff",
       "isort",
+      "clangd",
     },
   },
   config = function(_, opts)
