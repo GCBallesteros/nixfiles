@@ -43,7 +43,7 @@ local M = {
     })
     telescope.load_extension "fzy_native"
   end,
+  commit = "776b509",
   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzy-native.nvim" },
 }
-
 return M
