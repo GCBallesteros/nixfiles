@@ -1,6 +1,5 @@
 -- I want buffers to have fuzzy search
 -- I want buffers to open already in fuzzy search mode
--- Need a shortcut to close neotree
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -10,8 +9,13 @@ local M = {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>bb", "<cmd>Neotree position=float source=buffers<cr>", desc = "Buffers (NeoTree)" },
+    {
+      "<leader>bb",
+      "<cmd>Neotree position=float source=buffers<cr>",
+      desc = "Buffers (NeoTree)",
+    },
     { "-", "<cmd>Neotree source=filesystem position=current reveal<cr>", desc = "NeoTree" },
+    { "_", "<cmd>Neotree close<cr>", desc = "Close NeoTree" },
     { "<leader>ss", "<cmd>Neotree source=document_symbols<cr>", desc = "Tree Symbols" },
   },
   config = function()
