@@ -6,15 +6,17 @@ return {
       function()
         require("notebook-navigator").move_cell "d"
       end,
+      desc = "Move Cell Down",
     },
     {
       "[h",
       function()
         require("notebook-navigator").move_cell "u"
       end,
+      desc = "Move Cell Up",
     },
-    { "<leader>X", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
-    { "<leader>x", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
+    { "<space>x", "<cmd>lua require('notebook-navigator').run_cell()<cr>", desc = "Run Cell" },
+    { "]x", "<cmd>lua require('notebook-navigator').run_and_move()<cr>", desc = "Run Cell & Move" },
   },
   dependencies = {
     "echasnovski/mini.comment",

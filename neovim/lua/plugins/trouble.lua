@@ -6,16 +6,16 @@ local M = {
     {
       "<leader>xx",
       "<cmd>TroubleToggle document_diagnostics<cr>",
-      desc = "Document Diagnostics (Trouble)",
+      desc = "Document Diagnostics",
     },
     {
-      "<leader>xw",
+      "<leader>xX",
       "<cmd>TroubleToggle workspace_diagnostics<cr>",
-      desc = "Workspace Diagnostics (Trouble)",
+      desc = "Workspace Diagnostics",
     },
-    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
-    { "gr", "<cmd>Trouble lsp_references<cr>", desc = "References (Trouble)" },
+    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List" },
+    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List" },
+    { "<leader>sr", "<cmd>Trouble lsp_references<cr>", desc = "References" },
     {
       "[q",
       function()
