@@ -27,4 +27,17 @@ function M.getHostname()
   return hostname
 end
 
+function M.merge_opts(first_table, second_table)
+  local merged_table = {}
+
+  for k, v in pairs(first_table) do
+    merged_table[k] = v
+  end
+  for k, v in pairs(second_table) do
+    merged_table[k] = v
+  end
+
+  return merged_table
+end
+
 return M

@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+local utils = require "utils"
 
 -- Modes:
 --   Normal       = "n"
@@ -20,17 +21,25 @@ keymap("t", "<C-f>", "<CMD>FloatermNext<CR>", opts)
 -- Escape terminal key with ESC
 keymap("t", "<ESC>", "<C-\\><C-n>", opts)
 
+local add_description = function(opts, desc)
+  return utils.merge_opts(opts, { desc = desc })
+end
 ----------
 -- Misc --
 ----------
 -- fast saving
-keymap("n", "<leader>w", "<CMD>w<CR>", opts)
+keymap("n", "<leader>w", "<CMD>w<CR>", add_description(opts, "Save"))
 
 -- fast quitting
-keymap("n", "<leader>q", "<CMD>q<CR>", opts)
+keymap("n", "<leader>q", "<CMD>q<CR>", add_description(opts, "Quit"))
 
 -- clear highlighting
-keymap("n", "<CR>", "<Plug>(LoupeClearHighlight)", { noremap = false, silent = true })
+keymap(
+  "n",
+  "<CR>",
+  "<Plug>(LoupeClearHighlight)",
+  { noremap = false, silent = true, desc = "Clear Highlights" }
+)
 
 --quickfix movement
 keymap("n", "]q", "<cmd>cn<CR>", opts)
@@ -39,15 +48,26 @@ keymap("n", "[q", "<cmd>cp<CR>", opts)
 local M = {}
 
 M.enable_lsp_keymaps = function()
-  keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  keymap(
+    "n",
+    "<leader>sd",
+    "<cmd>lua vim.lsp.buf.definition()<CR>",
+    add_description(opts, "Jump To Definition")
+  )
+  keymap("n", "<leader>sk", "<cmd>lua vim.lsp.buf.hover()<CR>", add_description(opts, "Hover"))
+  keymap("n", "<leader>sa", "<cmd>lua vim.lsp.buf.code_action()<CR>", add_description(opts, "Code Action"))
+  keymap("n", "<Leader>sn", "<cmd>lua vim.lsp.buf.rename()<CR>", add_description(opts, "Rename"))
+  keymap(
+    "n",
+    "<leader>si",
+    "<cmd>lua vim.lsp.buf.implementation()<CR>",
+    add_description(opts, "Jump To Implementation")
+  )
 
   keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
-  keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+  keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", add_description(opts, "Format Buffer"))
 end
 
 return M
