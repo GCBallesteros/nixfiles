@@ -1,15 +1,17 @@
 local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  init = function()
+  config = function()
+    local wk = require "which-key"
     vim.o.timeout = true
     vim.o.timeoutlen = 300
+
+    wk.register({
+      g = { name = "git" },
+      s = { name = "lsp" },
+      x = { name = "trouble" },
+    }, { prefix = "<leader>" })
   end,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
 }
 
 return M
