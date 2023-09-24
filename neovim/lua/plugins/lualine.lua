@@ -8,7 +8,7 @@ local M = {
       lualine_b = {
         {
           "diagnostics",
-          symbols = { error = "  ", warn = "  ", info = "  ", hint = "  " },
+          symbols = { error = "  ", warn = "  ", info = "  ", hint = "󰍉  " },
           sources = { "nvim_lsp" },
         },
       },

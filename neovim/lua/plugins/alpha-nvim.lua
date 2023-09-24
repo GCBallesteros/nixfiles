@@ -11,7 +11,7 @@ local M = {
       dashboard.button("f", "  Find files", ":Telescope find_files<CR>"),
       dashboard.button("c", "  NVIM Config", ":e ~/Documents/personal_repos/nixfiles/neovim/init.lua<CR>"),
       dashboard.button("n", "  NIX Config", ":e ~/Documents/personal_repos/nixfiles/home.nix<CR>"),
-      dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+      dashboard.button("q", "󰩈  Quit Neovim", ":qa<CR>"),
     }
 
     local function footer()
@@ -24,7 +24,7 @@ local M = {
         .. vim.version().minor
         .. "."
         .. vim.version().patch
-        .. "   "
+        .. "   "
         .. datetime
 
       return plugins_text .. "\n"

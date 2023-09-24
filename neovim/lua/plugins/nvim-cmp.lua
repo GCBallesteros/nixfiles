@@ -70,6 +70,10 @@ local M = {
         { name = "buffer" },
         { name = "path" },
       }),
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       formatting = {
         format = function(_, item)
           if kind_icons[item.kind] then
