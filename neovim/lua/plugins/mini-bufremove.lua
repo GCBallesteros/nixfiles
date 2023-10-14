@@ -1,12 +1,9 @@
-return {
+local M = {
   "echasnovski/mini.bufremove",
-  version = "*",
-  cmd = "BD",
-  config = function()
-    local bufremove = require "mini.bufremove"
-    bufremove.setup({})
-    vim.api.nvim_create_user_command("BD", function(_)
-      bufremove.delete()
-    end, { nargs = 0 })
-  end,
+  -- stylua: ignore
+  keys = {
+    { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+  },
 }
+
+return M
