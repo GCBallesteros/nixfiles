@@ -1,1 +1,1 @@
-return { "tpope/vim-vinegar", enabled = false }
+return { "tpope/vim-vinegar", enabled = true }
