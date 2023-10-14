@@ -63,7 +63,25 @@ return {
         },
       },
       pyright = {},
-      clangd = {},
+      clangd = {
+        capabilities = {
+          offsetEncoding = { "utf-16" },
+        },
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+        },
+        init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+        },
+      },
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
@@ -77,7 +95,6 @@ return {
       -- ["*"] = function(server, opts) end,
     },
   },
-  ---@param opts PluginLspOpts
   config = function(_, opts)
     -- diagnostics
     for _, sign in ipairs(signs) do
