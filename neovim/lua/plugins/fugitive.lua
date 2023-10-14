@@ -6,8 +6,9 @@ local M = {
     { "<leader>gg", "<cmd>G<cr>", desc = "Git Fugitive" },
     { "<leader>gp", "<cmd>G push<cr>", desc = "Git Push" },
     { "<leader>gb", "<cmd>G blame<cr>", desc = "Git Blame" },
-    { "<leader>gd", "<cmd>Gdiffsplit!<cr>", desc = "Git Diff file" },
-    { "<leader>gl", "<cmd>GcLog<cr>", desc = "Git Log" },
+    { "<leader>gd", "<cmd>Gdiffsplit!<cr>", desc = "Git Diff (current)" },
+    { "<leader>gd<space>", ":Gdiffsplit!<space>", desc = "Git Diff (branch/commit)" },
+    { "<leader>gl", ":GcLog<cr>", desc = "Git Log", mode = { "n", "v" } },
   },
 }
 
