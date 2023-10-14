@@ -2,6 +2,8 @@
 -- I want buffers to open already in fuzzy search mode
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
+  dev=true,
+  enabled=false,
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -57,7 +59,7 @@ local M = {
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
       },
-      -- buffers = { window = { mappings = { ["v"] = "fuzzy_finder" } } },
+      buffers = { window = { mappings = { ["x"] = "fuzzy_finder" } } },
     })
   end,
 }
