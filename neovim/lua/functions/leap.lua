@@ -1,3 +1,5 @@
+local M = {}
+
 local function get_line_starts(winid, dir)
   local wininfo = vim.fn.getwininfo(winid)[1]
   local cur_line = vim.fn.line "."
@@ -36,6 +38,7 @@ local function get_line_starts(winid, dir)
       lnum = update_lnum(lnum)
     end
   end
+
   -- Sort them by vertical screen distance from cursor.
   local cur_screen_row = vim.fn.screenpos(winid, cur_line, 1)["row"]
   local function screen_rows_from_cur(t)
@@ -51,7 +54,7 @@ local function get_line_starts(winid, dir)
   end
 end
 
-function leap_to_line_backwards()
+M.leap_to_line_backwards = function()
   local winid = vim.api.nvim_get_current_win()
   require("leap").leap({
     target_windows = { winid },
@@ -59,10 +62,12 @@ function leap_to_line_backwards()
   })
 end
 
-function leap_to_line_forward()
+M.leap_to_line_forward = function()
   local winid = vim.api.nvim_get_current_win()
   require("leap").leap({
     target_windows = { winid },
     targets = get_line_starts(winid, "up"),
   })
 end
+
+return M
