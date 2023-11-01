@@ -25,7 +25,7 @@ M.pop_os = {
   project_folders = {
     "~/Documents",
   },
-  dev_plugins = "~/Documents/",
+  dev_plugins = "~/Documents/personal_repos/",
 }
 
 return M
