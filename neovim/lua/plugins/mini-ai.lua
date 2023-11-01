@@ -1,33 +1,30 @@
 local function all_buffer_object()
   local from = { line = 1, col = 1 }
   local to = {
-    line = vim.fn.line "$",
+    line = vim.fn.line("$"),
     col = math.max(vim.fn.getline("$"):len(), 1),
   }
   return { from = from, to = to }
 end
 
 return {
-  "echasnovski/mini.ai",
-  version = false,
-  event = "VeryLazy",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "GCBallesteros/NotebookNavigator.nvim",
+  {
+    "echasnovski/mini.ai",
+    dependencies = { "GCBallesteros/NotebookNavigator.nvim" },
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local nn = require("notebook-navigator")
+      local extra_objects = { h = nn.miniai_spec, g = all_buffer_object }
+
+      -- Make sure we have a place to put the custom_textobjects
+      if opts.custom_textobjects == nil then
+        opts.custom_textobjects = {}
+      end
+
+      for k, v in pairs(extra_objects) do
+        opts.custom_textobjects[k] = v
+      end
+      return opts
+    end,
   },
-  opts = function()
-    local ai = require "mini.ai"
-    local nn = require "notebook-navigator"
-    return {
-      n_lines = 500,
-      custom_textobjects = {
-        f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-        g = all_buffer_object,
-        h = nn.miniai_spec,
-      },
-    }
-  end,
-  config = function(_, opts)
-    require("mini.ai").setup(opts)
-  end,
 }

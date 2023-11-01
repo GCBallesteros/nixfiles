@@ -1,1 +1,1 @@
-return { "echasnovski/mini.doc", version = false, opts = {} }
+return { "echasnovski/mini.doc", version = false, config = true }

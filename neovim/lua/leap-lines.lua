@@ -23,7 +23,7 @@ local function get_line_starts(winid, dir)
     end
   end
 
-  -- Get targets.
+  -- Get targets
   local targets = {}
   local lnum = vim.fn.line "."
   while loop_condition(lnum) do
