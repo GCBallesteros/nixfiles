@@ -10,12 +10,16 @@
 
   home.packages = [
     pkgs.curl
-    pkgs.exa
+    pkgs.cmake
+    pkgs.dbmate
+    pkgs.eza
     pkgs.fd
     pkgs.gdal
     pkgs.git
     pkgs.htop
+    pkgs.hurl
     pkgs.jq
+    pkgs.luajit
     pkgs.neovim
     pkgs.nixfmt
     pkgs.nmap
@@ -24,6 +28,7 @@
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
     pkgs.postgresql_15
+    pkgs.radare2
     pkgs.ripgrep
     pkgs.rustup
     pkgs.tmux
@@ -31,17 +36,18 @@
     pkgs.wget
     pkgs.whois
     pkgs.yarn
+    pkgs.zellij
   ];
 
   programs.git = {
     enable = true;
     userName = "GCBallesteros";
     userEmail = "dev+github@maxwellrules.com";
-    extraConfig = {
-      commit.gpgsign = true;
-      gpg.format = "ssh";
-      user.signingkey = "~/.ssh/github.pub";
-    };
+    #extraConfig = {
+    #  commit.gpgsign = true;
+    #  gpg.format = "ssh";
+    #  user.signingkey = "~/.ssh/github.pub";
+    #};
   };
 
   programs.ssh = {
@@ -63,17 +69,18 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "GitHub";
+      theme = "Dracula";
       italic-text = "always";
     };
   };
 
-  xdg.configFile.nvim = {
-    source = ./neovim;
-    recursive = true;
-  };
+  # xdg.configFile.nvim = {
+  #  source = ./neovim;
+  #  recursive = true;
+  # };
 
   xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
+  xdg.configFile."zellij/config.kdl".source = ./zellij/config.kdl;
 
   programs.atuin = { enable = true; };
 
@@ -85,12 +92,12 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
-      sl = "exa --color=auto";
-      ls = "exa --color=auto";
-      ll = "exa -lah";
-      la = "exa -la";
+      sl = "eza --color=auto";
+      ls = "eza --color=auto";
+      ll = "eza -lah";
+      la = "eza -la";
       mkdir = "mkdir -p";
-      cat = "bat --style=plain";
+      cat = "bat";
     };
     history = {
       size = 5000;
@@ -102,7 +109,7 @@
 
     initExtra = ''
       export PYENV_ROOT=$HOME/.pyenv
-      export PATH="$HOME/.pyenv/bin:$PATH"
+      export PATH="$HOME/.pyenv/bin:/opt/homebrew/bin:$PATH"
       eval "$(pyenv init -)"
       eval "$(pyenv virtualenv-init -)"
     '';
