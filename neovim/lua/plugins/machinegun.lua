@@ -9,7 +9,8 @@ return {
       ["guillem@m2"] = { colorscheme = "rose-pine" },
       ["root@m2"] = { colorscheme = "catppuccin-latte" },
       ["work_desktop"] = { colorscheme = "tokyonight" },
-      ["ds_machine"] = { colorscheme = "tokyonight" },
+      ["ds_machine"] = { colorscheme = "rose-pine" },
+      ["root@ds_machine"] = { colorscheme = "miasma" },
     },
   },
 }
