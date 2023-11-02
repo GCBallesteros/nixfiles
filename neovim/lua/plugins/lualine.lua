@@ -22,6 +22,7 @@ return {
       },
       tabline = {
         lualine_a = { "tabs" },
+        lualine_b = { "aerial" },
         lualine_y = {
           {
             "diff",

@@ -28,7 +28,7 @@ return {
 		local width = 63
 		local height = 25
 		dashboard.section.terminal.command = "cat | "
-			.. os.getenv("HOME") .. "/.config/nvim/lucia.sh"
+			.. os.getenv("HOME") .. "/.config/nvim/assets/lucia.sh"
 		dashboard.section.terminal.width = width
 		dashboard.section.terminal.height = height
 		dashboard.section.terminal.opts.redraw = true
