@@ -20,7 +20,7 @@ return {
 			end,
 			desc = "DiffviewOpen",
 		},
-		{ "<leader>gdo", "<CMD>DiffviewOpen origin/head...head<CR>", desc = "Diff origin vs local" },
+		{ "<leader>gdh", "<CMD>DiffviewFileHistory %<CR>", desc = "Diff file history" },
 	},
 	config = true,
 }
