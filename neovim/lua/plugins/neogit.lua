@@ -14,7 +14,7 @@ return {
       { "<leader>gl", "<cmd>Neogit log<cr>", desc = "Git Log", mode = { "n" } },
     }
   end,
-  dev = true,
+  dev = false,
   opts = {
     integrations = {
       telescope = true,
