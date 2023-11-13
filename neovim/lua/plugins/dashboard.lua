@@ -1,10 +1,10 @@
 return {
   "goolord/alpha-nvim",
   config = function()
-    local alpha = require("alpha")
+    local alpha = require "alpha"
     ---@diagnostic disable-next-line: unused-local
-    local _alphaterm = require("alpha.term") -- needed, ignore unused local
-    local dashboard = require("alpha.themes.dashboard")
+    local _alphaterm = require "alpha.term" -- needed, ignore unused local
+    local dashboard = require "alpha.themes.dashboard"
 
     dashboard.section.buttons.val = {
       dashboard.button("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
@@ -24,7 +24,7 @@ return {
 
     local width = 63
     local height = 25
-    dashboard.section.terminal.command = "cat | " .. os.getenv("HOME") .. "/.config/nvim/assets/lucia.sh"
+    dashboard.section.terminal.command = "cat | " .. os.getenv "HOME" .. "/.config/nvim/assets/lucia.sh"
     dashboard.section.terminal.width = width
     dashboard.section.terminal.height = height
     dashboard.section.terminal.opts.redraw = true

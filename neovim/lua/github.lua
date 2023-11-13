@@ -80,7 +80,7 @@ M.pr_comments = {}
 
 M.add_pr_comment = function()
   vim.fn.sign_place(0, "gh", "pr_comments", "%", { lnum = 3 })
-  M.pr_comments[#M.pr_comments + 1] = {diff_line = 3}
+  M.pr_comments[#M.pr_comments + 1] = { diff_line = 3 }
   print(vim.inspect(M.pr_comments))
 end
 
