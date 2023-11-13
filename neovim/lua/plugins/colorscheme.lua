@@ -4,7 +4,6 @@ return {
   { "xero/miasma.nvim", priority = 1000 },
   {
     "LazyVim/LazyVim",
-    dependencies = { "GCBallesteros/machinegun.nvim" },
     opts = function(_, opts)
       opts.colorscheme = mg.colorscheme
       return opts

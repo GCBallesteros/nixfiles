@@ -1,9 +1,23 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
+
+-- Bootstrap machinegun.nvim
+local machinepath = vim.fn.stdpath "data" .. "/lazy/machinegun.nvim"
+if not vim.loop.fs_stat(machinepath) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/GCBallesteros/machinegun.nvim.git", "--branch=stable", machinepath })
+end
+
+vim.opt.rtp:prepend(machinepath)
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+
+local _, machinegun  = pcall(require,"machinegun")
+local machinegun_config = require "config.machinegun"
+machinegun.setup(machinegun_config)
 
 require("lazy").setup({
   spec = {

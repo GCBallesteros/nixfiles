@@ -1,8 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  -- dependencies = { "GCBallesteros/machinegun.nvim" },
   opts = function(_, opts)
-    -- local machine_settings = require("machinegun").settings
     Util = require "lazyvim.util"
     local lualine_require = require "lualine_require"
 
