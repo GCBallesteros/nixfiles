@@ -52,9 +52,7 @@ return {
       },
       extensions = {
         whaler = {
-          directories = {
-            { path = "/Users/guillem/projects", alias = "plugins" },
-          },
+          directories = mg.whaler_folders,
         },
       },
     }
