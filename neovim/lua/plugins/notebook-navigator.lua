@@ -23,7 +23,7 @@ return {
     "hkupty/iron.nvim",
     "anuvyklack/hydra.nvim",
   },
-  dev = false,
+  dev = mg.dev.notebooknavigator,
   event = "VeryLazy",
   config = function()
     local nn = require "notebook-navigator"

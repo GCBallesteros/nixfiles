@@ -52,7 +52,8 @@ return {
       },
       extensions = {
         whaler = {
-          directories = mg.whaler_folders,
+          directories = mg.whaler.directories,
+          oneoff_directories = mg.whaler.oneoff_directories,
         },
       },
     }

@@ -9,7 +9,7 @@ end
 local machinepath = vim.fn.stdpath "data" .. "/lazy/machinegun.nvim"
 if not vim.loop.fs_stat(machinepath) then
   -- stylua: ignore
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/GCBallesteros/machinegun.nvim.git", "--branch=stable", machinepath })
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/GCBallesteros/machinegun.nvim.git", "--branch=main", machinepath })
 end
 
 vim.opt.rtp:prepend(machinepath)
