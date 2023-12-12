@@ -23,7 +23,7 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.editor.leap" },
+    -- { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.formatting.black" },

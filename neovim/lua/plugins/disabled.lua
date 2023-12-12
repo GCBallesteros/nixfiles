@@ -1,5 +1,5 @@
 local disabled_plugins = {
-  "folke/flash.nvim",
+  -- "folke/flash.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-neo-tree/neo-tree.nvim",
   "nvim-pack/nvim-spectre",
