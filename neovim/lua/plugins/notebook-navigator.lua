@@ -29,7 +29,7 @@ return {
     local nn = require "notebook-navigator"
     nn.setup({
       activate_hydra_keys = "<leader>h",
-      repl_provider = "iron",
+      repl_provider = "molten",
       hydra_keys = { comment = nil },
     })
   end,
