@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(machinepath)
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local _, machinegun  = pcall(require,"machinegun")
+local _, machinegun = pcall(require, "machinegun")
 local machinegun_config = require "config.machinegun"
 machinegun.setup(machinegun_config)
 
@@ -25,7 +25,7 @@ require("lazy").setup({
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.formatting.black" },
+    -- { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.editor.aerial" },
 
     -- import/override with your plugins

@@ -2,7 +2,7 @@
 
 {
   programs.home-manager.enable = true;
-  
+
   home.username = "guillem";
   home.homeDirectory = "/Users/guillem";
 
@@ -14,30 +14,38 @@
     pkgs.dbmate
     pkgs.eza
     pkgs.fd
+    pkgs.fzf
     pkgs.gdal
     pkgs.git
     pkgs.htop
     pkgs.hurl
+    pkgs.imagemagick
     pkgs.jq
     pkgs.luajit
     pkgs.neovim
-    pkgs.nixfmt
+    pkgs.nixfmt-classic
     pkgs.nmap
     pkgs.nodejs
-    pkgs.octave
     pkgs.poetry
     (import ./python-packages.nix { pkgs = pkgs; })
     pkgs.postgresql_15
-    pkgs.radare2
+    pkgs.qmk
     pkgs.ripgrep
+    pkgs.rsync
     pkgs.rustup
+    pkgs.stylua
     pkgs.tmux
     pkgs.unzip
     pkgs.wget
     pkgs.whois
-    pkgs.yarn
-    pkgs.zellij
+    pkgs.nix-prefetch-github
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -56,7 +64,7 @@
       "github.com" = {
         identityFile = "~/.ssh/github";
         identitiesOnly = true;
-      }; 
+      };
     };
   };
 
@@ -69,27 +77,29 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Dracula";
+      theme = "GitHub";
       italic-text = "always";
     };
   };
 
-  # xdg.configFile.nvim = {
-  #  source = ./neovim;
-  #  recursive = true;
-  # };
+  programs.pyenv = { enable = true; };
 
-  xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
-  xdg.configFile."zellij/config.kdl".source = ./zellij/config.kdl;
+  home.file."${config.xdg.configHome}/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./neovim;
+    recursive = true;
+  };
 
-  programs.atuin = { enable = true; };
+  #xdg.configFile."tmux/tmux.conf".source = ./tmux/tmux.conf;
 
-  xdg.configFile."atuin/config.toml".source = ./atuin/config.toml;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = {
       sl = "eza --color=auto";
@@ -100,23 +110,22 @@
       cat = "bat";
     };
     history = {
-      size = 5000;
-      save = 5000;
+      size = 10000;
+      save = 10000;
       ignorePatterns =
         [ "ls" "[bf]g" "exit" "reset" "clear" "cd" "cd .." "cd.." ];
       share = true;
     };
 
+    # Still need to remember to install pyenv-virtualenv manually
+    # https://github.com/pyenv/pyenv-virtualenv
     initExtra = ''
-      export PYENV_ROOT=$HOME/.pyenv
-      export PATH="$HOME/.pyenv/bin:/opt/homebrew/bin:$PATH"
-      eval "$(pyenv init -)"
       eval "$(pyenv virtualenv-init -)"
     '';
   };
 
   home.sessionVariables = {
-    PYENV_VIRTUALENV_DISABLE_PROMPT=1;
+    PYENV_VIRTUALENV_DISABLE_PROMPT = 1;
     EDITOR = "nvim";
   };
 }

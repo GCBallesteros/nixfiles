@@ -15,11 +15,12 @@ return {
       function()
         require("leap-lines").leap_to_line_backwards()
       end,
+      mode = { "n", "x", "o" },
       desc = "Leap lines up",
     },
     { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
     { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-    { "L", mode = { "n" } },
+    { "L", mode = { "n" }, desc = "Treesitter jump" },
   },
   config = function(_, opts)
     local leap = require "leap"

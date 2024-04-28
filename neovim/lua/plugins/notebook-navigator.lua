@@ -17,6 +17,8 @@ return {
     },
     { ",x", "<cmd>lua require('notebook-navigator').run_cell()<cr>", desc = "Run Cell" },
     { "]x", "<cmd>lua require('notebook-navigator').run_and_move()<cr>", desc = "Run Cell & Move" },
+    { "]u", "<cmd>lua require('notebook-navigator').swap_cell('d')<cr>", desc = "Run Cell & Move" },
+    { "[u", "<cmd>lua require('notebook-navigator').swap_cell('u')<cr>", desc = "Run Cell & Move" },
   },
   dependencies = {
     "echasnovski/mini.comment",
@@ -29,7 +31,7 @@ return {
     local nn = require "notebook-navigator"
     nn.setup({
       activate_hydra_keys = "<leader>h",
-      repl_provider = "molten",
+      repl_provider = "iron",
       hydra_keys = { comment = nil },
     })
   end,
